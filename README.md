@@ -25,7 +25,7 @@ The verifier checks required pages, SEO metadata, JSON-LD, internal links, stati
 
 ## Production deployment
 
-Production uses `docker-compose.yml`, exposing nginx only on host loopback port `8530`. Caddy terminates TLS and proxies `docmanfu.com` and `www.docmanfu.com` to the site.
+Production uses `docker-compose.yml`, exposing nginx on host loopback port `8530` for local health checks and joining the existing `caddy_default` Docker network. Caddy terminates TLS and proxies `docmanfu.com` and `www.docmanfu.com` to the `docmanfu-marketing` container.
 
 ```bash
 docker compose up -d --build
