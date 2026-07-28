@@ -1,0 +1,61 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#101d19">
+  <meta name="color-scheme" content="light">
+  <title>{{ title }}{% if title != site.name %} | {{ site.name }}{% endif %}</title>
+  <meta name="description" content="{{ description or site.description }}">
+  <meta name="robots" content="index, follow, max-image-preview:large">
+  <link rel="canonical" href="{{ page.url | absoluteUrl(site.url) }}">
+  <link rel="icon" href="/assets/images/favicon-32.png" sizes="32x32">
+  <link rel="apple-touch-icon" href="/assets/images/apple-touch-icon.png">
+  <link rel="manifest" href="/site.webmanifest">
+  <meta property="og:type" content="website">
+  <meta property="og:site_name" content="{{ site.name }}">
+  <meta property="og:title" content="{{ title }}{% if title != site.name %} | {{ site.name }}{% endif %}">
+  <meta property="og:description" content="{{ description or site.description }}">
+  <meta property="og:url" content="{{ page.url | absoluteUrl(site.url) }}">
+  <meta property="og:image" content="{{ '/assets/images/social-card.png' | absoluteUrl(site.url) }}">
+  <meta property="og:image:alt" content="DocManFu — private, intelligent document management">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="{{ title }}{% if title != site.name %} | {{ site.name }}{% endif %}">
+  <meta name="twitter:description" content="{{ description or site.description }}">
+  <meta name="twitter:image" content="{{ '/assets/images/social-card.png' | absoluteUrl(site.url) }}">
+  <link rel="preload" href="/assets/fonts/manrope-latin.woff2" as="font" type="font/woff2" crossorigin>
+  <link rel="stylesheet" href="/assets/css/main.css">
+  <script type="application/ld+json">{{ schema | dump | safe }}</script>
+</head>
+<body class="{{ bodyClass or '' }}">
+  <a class="skip-link" href="#main">Skip to content</a>
+  <header class="site-header" data-header>
+    <div class="shell header-inner">
+      <a class="brand" href="/" aria-label="DocManFu home">
+        <img src="/assets/images/logo-mark.png" width="42" height="42" alt="">
+        <span>DocManFu</span>
+      </a>
+      <button class="nav-toggle" type="button" aria-expanded="false" aria-controls="site-nav" data-nav-toggle>
+        <span class="sr-only">Toggle navigation</span><span></span><span></span><span></span>
+      </button>
+      <nav id="site-nav" class="site-nav" aria-label="Primary" data-nav>
+        {% for item in navigation %}<a href="{{ item.url }}"{% if page.url == item.url %} aria-current="page"{% endif %}>{{ item.label }}</a>{% endfor %}
+        <a class="button button-small button-ghost" href="{{ site.github }}">GitHub <span aria-hidden="true">↗</span></a>
+      </nav>
+    </div>
+  </header>
+  <main id="main">{{ content | safe }}</main>
+  <footer class="site-footer">
+    <div class="shell footer-grid">
+      <div>
+        <a class="brand brand-footer" href="/"><img src="/assets/images/logo-mark.png" width="38" height="38" alt=""><span>DocManFu</span></a>
+        <p>Private document management with enough intelligence to be useful and enough freedom to remain yours.</p>
+      </div>
+      <div><h2>Explore</h2><a href="/features/">Features</a><a href="/getting-started/">Get started</a><a href="/evernote-alternative/">Evernote alternative</a><a href="/self-hosted-document-management/">Why self-host?</a></div>
+      <div><h2>Project</h2><a href="{{ site.github }}">GitHub</a><a href="{{ site.docs }}">Documentation</a><a href="{{ site.github }}/issues">Issues</a><a href="{{ site.github }}/blob/main/LICENSE">MIT License</a></div>
+    </div>
+    <div class="shell footer-bottom"><span>© {{ '' | year }} DocManFu</span><span>Open source. Self-hosted. No rent-seeking paperclip.</span></div>
+  </footer>
+  <script src="/assets/js/main.js" defer></script>
+</body>
+</html>

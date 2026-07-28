@@ -1,0 +1,32 @@
+---
+layout: layouts/base.njk
+permalink: /features/index.html
+title: Features
+bodyClass: inner-page
+description: "Explore DocManFu features: OCR, AI document analysis, full-text search, tags, bill tracking, Evernote import, scanner automation, authentication, and private self-hosting."
+schema:
+  "@context": "https://schema.org"
+  "@type": "WebPage"
+  name: "DocManFu Features"
+  description: "OCR, AI organization, full-text search, bill tracking, and self-hosted document storage."
+---
+<section class="page-hero"><div class="shell narrow center reveal"><p class="eyebrow">Everything has a place</p><h1>A complete toolkit for your personal paper trail.</h1><p>DocManFu helps you capture, understand, organize, retrieve, and protect the documents that quietly run your life.</p></div></section>
+<section class="section"><div class="shell detail-feature-grid">
+{% set features = [
+ {icon:'◉', title:'Searchable OCR', text:'OCRmyPDF and Tesseract turn PDFs, JPGs, PNGs, TIFFs, and WebP images into searchable text. Existing text stays intact; scanned pages become useful.'},
+ {icon:'✦', title:'AI document analysis', text:'Automatically classify bills, statements, medical records, tax forms, insurance documents, and more. Generate sensible names, tags, and structured metadata.'},
+ {icon:'⌕', title:'Fast full-text search', text:'Search names and extracted document content, then narrow results by type, tag, upload date, or date range. The phrase you remember is enough.'},
+ {icon:'◇', title:'Tags and smart metadata', text:'Add your own color-coded tags or accept AI suggestions. Edit names and metadata at any time without changing the original file.'},
+ {icon:'＄', title:'Bill tracking', text:'Keep amount, due date, paid status, and payment details beside the bill itself. Quick filters reveal what is upcoming or overdue.'},
+ {icon:'↥', title:'Flexible capture', text:'Drag and drop multiple files, upload from any browser, import Evernote ENEX archives, or automate a scanner folder with the DocManFu CLI watcher.'},
+ {icon:'▣', title:'Built-in PDF preview', text:'Preview documents in the browser, inspect extracted text and AI metadata, edit tags, download the original, or reprocess with updated settings.'},
+ {icon:'⚙', title:'Background processing', text:'Celery and Redis process OCR, AI analysis, and imports outside the request cycle. Live job progress and status events keep the interface responsive.'},
+ {icon:'⌂', title:'Self-hosted storage', text:'Files remain on storage you select. Deploy to a NAS, homelab, or VPS with Docker and standard open-source infrastructure.'},
+ {icon:'◎', title:'Choose your AI', text:'Use OpenAI, Anthropic, local Ollama, or no AI at all. OCR and document management continue to work when AI is disabled.'},
+ {icon:'♙', title:'Accounts and roles', text:'JWT-based authentication, admin and user roles, per-user document ownership, API keys, and first-run setup protect multi-user installations.'},
+ {icon:'↺', title:'Backups and portability', text:'Standard PostgreSQL backups plus ordinary files on disk mean your archive is understandable, movable, and recoverable without a proprietary cloud export.'}
+] %}
+{% for feature in features %}<article class="detail-feature reveal"><div class="feature-icon">{{ feature.icon }}</div><h2>{{ feature.title }}</h2><p>{{ feature.text }}</p></article>{% endfor %}
+</div></section>
+<section class="section feature-deep"><div class="shell split-panel"><div class="reveal"><p class="eyebrow">The processing pipeline</p><h2>Every upload gets more useful.</h2><p>The original file is safely stored first. Then DocManFu creates a tracked processing job, runs OCR, extracts text, and—if enabled—asks your chosen AI provider for classification and metadata.</p><ul class="check-list"><li>Original file is preserved</li><li>Retries handle temporary failures</li><li>Every job has visible status and history</li><li>Reprocess documents when settings improve</li></ul></div><div class="pipeline reveal delay-1"><div><span>1</span><b>Capture</b><small>PDF or image</small></div><i>→</i><div><span>2</span><b>OCR</b><small>Searchable text</small></div><i>→</i><div><span>3</span><b>Analyze</b><small>Name, type, tags</small></div><i>→</i><div><span>4</span><b>Find</b><small>Instant retrieval</small></div></div></div></section>
+{% include "partials/cta.njk" %}

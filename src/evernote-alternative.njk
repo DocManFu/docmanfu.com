@@ -1,0 +1,29 @@
+---
+layout: layouts/base.njk
+permalink: /evernote-alternative/index.html
+title: A Self-Hosted Evernote Alternative for Documents
+description: "Looking for an Evernote alternative for personal documents? DocManFu imports ENEX files and adds OCR, AI organization, bill tracking, full-text search, and self-hosted privacy."
+bodyClass: inner-page
+schema:
+  "@context": "https://schema.org"
+  "@type": "Article"
+  headline: "DocManFu: A Self-Hosted Evernote Alternative for Personal Documents"
+  author:
+    "@type": "Organization"
+    name: "DocManFu"
+---
+<section class="page-hero"><div class="shell narrow center reveal"><p class="eyebrow">Beyond the notes subscription</p><h1>An Evernote alternative built for documents you want to keep.</h1><p>Import your ENEX archive, preserve attachments, and turn a long-lived notes account into a private, searchable document system.</p><div class="button-row centered"><a class="button button-primary" href="/getting-started/">Make the move</a><a class="button button-outline" href="{{ site.github }}">See the source</a></div></div></section>
+<section class="section"><div class="shell comparison-table-wrap reveal"><table class="full-comparison"><thead><tr><th>Capability</th><th>DocManFu</th><th>Typical cloud note service</th></tr></thead><tbody>
+<tr><td><b>Primary purpose</b><small>What the product is optimized for</small></td><td>Personal document archive</td><td>General notes and collaboration</td></tr>
+<tr><td><b>Storage location</b><small>Where original documents live</small></td><td><span class="yes">✓</span> Your hardware or server</td><td>Vendor cloud</td></tr>
+<tr><td><b>Evernote migration</b><small>Bring existing notes and attachments</small></td><td><span class="yes">✓</span> ENEX import with attachments</td><td>Not applicable</td></tr>
+<tr><td><b>Scanned PDF search</b><small>OCR for image-only documents</small></td><td><span class="yes">✓</span> Included locally</td><td>Varies by plan</td></tr>
+<tr><td><b>AI provider choice</b><small>Decide who processes document text</small></td><td><span class="yes">✓</span> OpenAI, Anthropic, Ollama, or none</td><td>Vendor selected</td></tr>
+<tr><td><b>Bill tracking</b><small>Amount, due date, and paid status</small></td><td><span class="yes">✓</span> Built in</td><td>Manual notes</td></tr>
+<tr><td><b>Automated scanner folder</b><small>Upload new files from a watched directory</small></td><td><span class="yes">✓</span> Companion CLI</td><td>Limited</td></tr>
+<tr><td><b>Subscription</b><small>Ongoing software fee</small></td><td><span class="yes">✓</span> None</td><td>Usually required</td></tr>
+<tr><td><b>Source code</b><small>Inspect, modify, and preserve the software</small></td><td><span class="yes">✓</span> MIT licensed</td><td>Proprietary</td></tr>
+</tbody></table></div></section>
+<section class="section migration-section"><div class="shell split-panel"><div class="reveal"><p class="eyebrow">A migration path, not a cliff</p><h2>Import your Evernote archive.</h2><p>Export notebooks from Evernote as ENEX files, then upload them from DocManFu’s admin import screen. Imports run in the background and preserve note titles, dates, tags, content, and supported attachments.</p><ol class="number-list"><li><span>1</span>Export one or more notebooks as ENEX</li><li><span>2</span>Upload the ENEX file in DocManFu</li><li><span>3</span>Review imported documents and processing jobs</li><li><span>4</span>Keep your export as an independent backup</li></ol></div><div class="migration-card reveal delay-1"><div class="migration-source"><span>Legacy archive</span><b>Personal Documents.enex</b><small>1,248 notes · 9.6 GB</small></div><div class="migration-arrow">→</div><div class="migration-destination"><img src="/assets/images/logo-mark.png" alt=""><span>DocManFu</span><b>Imported and searchable</b><small>Titles · tags · dates · attachments</small></div></div></div></section>
+<section class="section faq-section"><div class="shell narrow"><p class="eyebrow">Migration questions</p><h2>Before you cancel anything.</h2><div class="faq-list"><details><summary>Does DocManFu replace every Evernote feature?</summary><p>No. It is purpose-built for personal document storage rather than general note-taking, tasks, team collaboration, or web clipping. If your primary use is archiving PDFs, scans, statements, and records, that focus is an advantage.</p></details><details><summary>Should I keep the ENEX export?</summary><p>Yes. Preserve the original export as a backup until you have verified important notes and attachments in DocManFu. Caution is inexpensive; regret has premium pricing.</p></details><details><summary>Can I run AI locally?</summary><p>Yes. Configure Ollama to keep compatible AI analysis local, or disable AI entirely. OCR and search still work.</p></details></div></div></section>
+{% include "partials/cta.njk" %}

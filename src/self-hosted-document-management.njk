@@ -1,0 +1,24 @@
+---
+layout: layouts/base.njk
+permalink: /self-hosted-document-management/index.html
+title: Self-Hosted Document Management
+bodyClass: inner-page
+description: "Learn why self-hosted document management gives you privacy, ownership, portability, predictable costs, and control over AI—with DocManFu."
+schema:
+  "@context": "https://schema.org"
+  "@type": "Article"
+  headline: "Why Self-Host Your Document Management System?"
+  author:
+    "@type": "Organization"
+    name: "DocManFu"
+---
+<section class="page-hero page-hero-dark"><div class="shell narrow center reveal"><p class="eyebrow">Private by architecture</p><h1>Your documents contain your life. Host them accordingly.</h1><p>Tax records, medical statements, contracts, receipts, and insurance policies deserve stronger guarantees than a changing privacy policy.</p></div></section>
+<section class="section prose-section"><div class="shell prose-layout"><aside class="toc"><strong>On this page</strong><a href="#ownership">Data ownership</a><a href="#privacy">Privacy</a><a href="#cost">Cost</a><a href="#portability">Portability</a><a href="#deployment">Deployment</a></aside><article class="prose">
+<h2 id="ownership">Data ownership should be literal</h2><p>With self-hosted document management, your source files live on storage you choose. DocManFu does not require a hosted account, subscription, or vendor-controlled database. If the project disappeared tomorrow, your files and standard PostgreSQL data would still be yours.</p>
+<h2 id="privacy">Privacy without wishful thinking</h2><p>DocManFu can run entirely inside your network. OCR happens locally. AI is optional, and Ollama lets compatible models run locally too. If you prefer OpenAI or Anthropic, you can make that explicit choice rather than accepting an invisible dependency.</p><div class="callout"><b>The simplest privacy promise is architectural:</b> a service cannot monetize documents it never receives.</div>
+<h2 id="cost">Predictable cost instead of permanent rent</h2><p>The software is free under the MIT License. Run it on hardware you already own or an inexpensive VPS. Your cost is infrastructure—not a per-seat document tax that rises after your archive becomes difficult to move.</p>
+<h2 id="portability">Boring technology is a feature</h2><p>PDFs and images remain ordinary files. Metadata lives in PostgreSQL. Backups use familiar tools. Docker Compose describes the stack. Those choices are intentionally unexciting because personal archives need to survive trends.</p>
+<h2 id="deployment">Where can DocManFu run?</h2><ul><li>A home server or mini PC</li><li>A NAS that supports Docker</li><li>A private VPS</li><li>A Linux workstation</li><li>Docker Desktop on macOS or Windows</li></ul><p>You need Docker and Docker Compose. For public access, add HTTPS with Caddy, Traefik, or your preferred reverse proxy and maintain normal server security practices.</p>
+<div class="article-cta"><h3>Own the archive, not just the export button.</h3><p>DocManFu gives you modern retrieval without surrendering custody.</p><a class="button button-primary" href="/getting-started/">Deploy DocManFu</a></div>
+</article></div></section>
+{% include "partials/cta.njk" %}
