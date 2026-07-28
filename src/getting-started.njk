@@ -8,7 +8,6 @@ schema:
   "@context": "https://schema.org"
   "@type": "HowTo"
   name: "How to install DocManFu with Docker Compose"
-  totalTime: "PT15M"
   step:
     - "@type": "HowToStep"
       name: "Clone DocManFu"
@@ -19,7 +18,7 @@ schema:
     - "@type": "HowToStep"
       name: "Create the administrator account"
 ---
-<section class="page-hero page-hero-dark"><div class="shell narrow center reveal"><p class="eyebrow">Docker ready</p><h1>Your private document vault is about fifteen minutes away.</h1><p>DocManFu packages the web app, API, database, task queue, and OCR worker into one Docker Compose stack.</p></div></section>
+<section class="page-hero page-hero-dark"><div class="shell narrow center reveal"><p class="eyebrow">Docker ready</p><h1>Your private document vault is one Docker Compose stack away.</h1><p>DocManFu packages the web app, API, database, task queue, and OCR worker into one Docker Compose stack.</p></div></section>
 <section class="section install-section"><div class="shell install-layout"><article class="install-steps">
 <div class="install-step reveal"><span>01</span><div><h2>Clone the repository</h2><p>You need Git, Docker Engine, and Docker Compose v2.</p><div class="code-block"><button type="button" data-copy="git clone https://github.com/DocManFu/DocManFu.git
 cd DocManFu">Copy</button><pre><code>git clone https://github.com/DocManFu/DocManFu.git
@@ -30,15 +29,22 @@ $EDITOR .env</code></pre></div><div class="tip"><b>Required:</b> Change <code>PO
 ./prod ps">Copy</button><pre><code>./prod up -d
 ./prod ps</code></pre></div><p>The first build downloads images and prepares OCR dependencies. Open <a href="http://localhost:8080">http://localhost:8080</a> when the services are healthy.</p></div></div>
 <div class="install-step reveal"><span>04</span><div><h2>Create your administrator</h2><p>The first-run setup screen creates the admin account. Sign in, upload a document, and watch OCR progress in real time.</p></div></div>
-<div class="install-step reveal"><span>05</span><div><h2>Optional: enable AI</h2><p>DocManFu works without AI. Add OpenAI, Anthropic, or Ollama when you want automated names, types, tags, and metadata.</p><div class="code-block"><button type="button" data-copy="AI_PROVIDER=ollama
-AI_BASE_URL=http://host.docker.internal:11434
-AI_MODEL=llama3.2">Copy</button><pre><code>AI_PROVIDER=ollama
-AI_BASE_URL=http://host.docker.internal:11434
-AI_MODEL=llama3.2</code></pre></div></div></div>
-</article><aside class="install-aside"><div class="aside-card"><h2>Before you begin</h2><ul class="check-list"><li>Docker + Compose v2</li><li>At least 2 GB RAM</li><li>Persistent storage</li><li>A backup destination</li></ul></div><div class="aside-card"><h2>Useful links</h2><a href="{{ site.docs }}">Deployment guide <span>↗</span></a><a href="{{ site.github }}/blob/main/docs/ARCHITECTURE.md">Architecture <span>↗</span></a><a href="{{ site.github }}/blob/main/.env.production.example">Environment example <span>↗</span></a><a href="{{ site.github }}/issues">Get help <span>↗</span></a></div><div class="aside-card warning-card"><h2>Going public?</h2><p>Put DocManFu behind HTTPS, use unique secrets, keep Docker updated, restrict server access, and test your backups.</p></div></aside></div></section>
-<section class="section cli-section"><div class="shell split-panel"><div class="reveal"><p class="eyebrow">Scanner automation</p><h2>Install the folder watcher.</h2><p>The optional <code>docmanfu</code> CLI watches a directory and uploads new PDFs or images. Point a network scanner at that folder and filing becomes pleasantly boring.</p><div class="code-block light-code"><button type="button" data-copy="brew tap DocManFu/docmanfu
+<div class="install-step reveal"><span>05</span><div><h2>Optional: enable local AI</h2><p>DocManFu works without AI. For CPU-only local Ollama, add these values to <code>.env</code>, start the Ollama profile, pull the model, and recreate the application services. NVIDIA and native macOS options are covered in the deployment guide.</p><div class="code-block"><button type="button" data-copy="AI_PROVIDER=ollama
+AI_BASE_URL=http://ollama-cpu:11434
+AI_MODEL=llama3.2
+./prod up -d --profile ollama-cpu
+./prod pull-models">Copy</button><pre><code># Add to .env
+AI_PROVIDER=ollama
+AI_BASE_URL=http://ollama-cpu:11434
+AI_MODEL=llama3.2
+
+# Then run
+./prod up -d --profile ollama-cpu
+./prod pull-models</code></pre></div></div></div>
+</article><div class="install-aside"><div class="aside-card"><h2>Before you begin</h2><ul class="check-list"><li>Docker + Compose v2</li><li>At least 2 GB RAM</li><li>Persistent storage</li><li>A backup destination</li></ul></div><div class="aside-card"><h2>Useful links</h2><a href="{{ site.docs }}">Deployment guide <span>↗</span></a><a href="{{ site.github }}/blob/main/docs/ARCHITECTURE.md">Architecture <span>↗</span></a><a href="{{ site.github }}/blob/main/.env.production.example">Environment example <span>↗</span></a><a href="{{ site.github }}/issues">Get help <span>↗</span></a></div><div class="aside-card warning-card"><h2>Going public?</h2><p>Put DocManFu behind HTTPS, use unique secrets, keep Docker updated, restrict server access, and test your backups.</p></div></div></div></section>
+<section class="section cli-section"><div class="shell split-panel"><div class="reveal"><p class="eyebrow">Scanner-folder helper</p><h2>Install the folder watcher.</h2><p>The optional <code>docmanfu</code> CLI watches a directory and attempts to upload new PDFs or images. Verify uploads in DocManFu, especially when a scanner writes large files slowly.</p><div class="code-block light-code"><button type="button" data-copy="brew tap DocManFu/docmanfu
 brew install docmanfu
 docmanfu --path ~/scans">Copy</button><pre><code>brew tap DocManFu/docmanfu
 brew install docmanfu
-docmanfu --path ~/scans</code></pre></div></div><div class="watcher-visual reveal delay-1"><span>SCANNER</span><i>→</i><span>~/scans</span><i>→</i><span class="logo-box"><img src="/assets/images/logo-mark.png" alt="">DocManFu</span><small>Watches quietly · uploads automatically</small></div></div></section>
+docmanfu --path ~/scans</code></pre></div></div><div class="watcher-visual reveal delay-1"><span>SCANNER</span><i>→</i><span>~/scans</span><i>→</i><span class="logo-box"><img src="/assets/images/logo-mark.png" alt="">DocManFu</span><small>Watches for new files · verify completed uploads</small></div></div></section>
 {% include "partials/cta.njk" %}

@@ -1,0 +1,20 @@
+---
+layout: layouts/base.njk
+permalink: /privacy/index.html
+title: Privacy
+bodyClass: inner-page
+description: "How the DocManFu marketing website and self-hosted DocManFu software handle privacy, analytics, AI providers, and document data."
+schema:
+  "@context": "https://schema.org"
+  "@type": "WebPage"
+  name: "DocManFu Privacy"
+---
+<section class="page-hero"><div class="shell narrow center"><p class="eyebrow">Straightforward privacy</p><h1>What stays private—and what depends on your choices.</h1><p>DocManFu is self-hosted software. This public marketing website is not the application and does not receive documents stored in your installation.</p></div></section>
+<section class="section prose-section"><div class="shell prose-layout"><div class="toc"><strong>On this page</strong><a href="#website">This website</a><a href="#installation">Your installation</a><a href="#ai">AI providers</a><a href="#security">Security</a></div><article class="prose">
+<h2 id="website">This marketing website</h2><p>DocManFu.com is a static website. It does not use advertising pixels, behavioral analytics, account cookies, or document-upload forms. Standard web-server access logs may record an IP address, request path, browser user agent, status code, and timestamp for reliability and security purposes.</p>
+<h2 id="installation">Your DocManFu installation</h2><p>Documents uploaded to DocManFu are stored on the server and storage you configure. The software uses PostgreSQL for metadata and ordinary storage paths for uploaded files. You—not this website—operate that installation, control its users, and are responsible for access controls, updates, HTTPS, and backups.</p>
+<h2 id="ai">AI provider choices</h2><p>AI is optional. With AI disabled, no AI provider receives document content. Local Ollama can process compatible requests on infrastructure you control. If you configure OpenAI or Anthropic, relevant document text—and, for vision processing, rendered document images—can be sent to that provider under its terms and privacy policy.</p>
+<div class="callout"><b>For the strongest data locality:</b> disable AI or use a local Ollama installation.</div>
+<h2 id="security">Security and questions</h2><p>Review the project’s <a href="{{ site.github }}/blob/main/SECURITY.md">security policy</a> before exposing an installation publicly. Security concerns can be reported to <a href="mailto:{{ site.securityEmail }}">{{ site.securityEmail }}</a>.</p>
+</article></div></section>
+{% include "partials/cta.njk" %}
