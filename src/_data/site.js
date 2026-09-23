@@ -5,5 +5,7 @@ export default {
   description: "DocManFu is a free, open-source, self-hosted document management system with OCR, AI organization, full-text search, bill tracking, and private storage.",
   github: "https://github.com/DocManFu/DocManFu",
   docs: "https://github.com/DocManFu/DocManFu/blob/main/docs/DEPLOYMENT.md",
+  x: "https://x.com/DustinDavis",
+  xHandle: "DustinDavis",
   securityEmail: "security@docmanfu.com"
 };

@@ -20,23 +20,20 @@ schema:
 <section class="hero">
   <div class="hero-noise" aria-hidden="true"></div>
   <div class="shell hero-grid">
-    <div class="hero-copy reveal">
+    <div class="hero-copy reveal" data-parallax>
       <div class="status-pill"><span></span> Free &amp; open source</div>
       <p class="eyebrow">The private document vault</p>
       <h1>Master your documents.<br><em>Keep your freedom.</em></h1>
       <p class="hero-lead">DocManFu turns scans, statements, bills, and PDFs into an organized, searchable library on infrastructure you control. Keep AI local with Ollama—or disable it entirely.</p>
       <div class="button-row"><a class="button button-primary" href="/getting-started/">Get DocManFu</a><a class="button button-secondary" href="{{ site.github }}">Star on GitHub <span aria-hidden="true">↗</span></a></div>
-      <ul class="trust-list"><li>MIT licensed</li><li>Docker ready</li><li>No subscription</li></ul>
+      <ul class="trust-list"><li>MIT licensed</li><li>Docker ready</li><li>Hosted version coming soon</li></ul>
     </div>
-    <div class="hero-product reveal delay-1">
-      <p class="mock-caption">Product interface illustration</p>
-      <div class="app-window">
-        <div class="app-top"><span class="mini-brand"><img src="/assets/images/logo-mark.png" alt="">DocManFu</span><div class="search-demo">⌕&nbsp;&nbsp; Search every document… <kbd>⌘ K</kbd></div><span class="avatar">DD</span></div>
-        <div class="app-body"><div class="app-sidebar"><span class="active">▦&nbsp; Documents</span><span>⌕&nbsp; Search</span><span>↥&nbsp; Upload</span><span>＄&nbsp; Bills</span><span>◇&nbsp; Tags</span><hr><small>QUICK FILTERS</small><span>◷&nbsp; Recent</span><span>⚙&nbsp; Processing</span></div>
-        <div class="dashboard"><div class="dash-title"><div><small>DOCUMENT LIBRARY</small><strong>Everything, finally findable.</strong></div><span class="mock-button">＋ Upload</span></div>
-        <div class="metric-row"><div><b>247</b><span>Documents</span></div><div><b>18</b><span>This month</span></div><div><b>100%</b><span>Searchable</span></div></div>
-        <div class="doc-list"><div class="doc-row featured"><div class="file-icon">PDF</div><div><b>2026 Home Insurance Renewal</b><span>State Farm · Insurance · Jul 24</span></div><i>AI organized</i></div><div class="doc-row"><div class="file-icon gold">PDF</div><div><b>Rocky Mountain Power — July</b><span>$128.47 · Due Aug 12</span></div><i>Bill tracked</i></div><div class="doc-row"><div class="file-icon sage">PDF</div><div><b>Dental EOB — Family Plan</b><span>Medical · Jul 18</span></div><i>OCR complete</i></div></div>
-        </div></div>
+    <div class="hero-product reveal delay-1" data-parallax>
+      <div class="app-window app-screenshot">
+        <picture>
+          <source srcset="/assets/images/screenshot-documents-dark.jpg" media="(prefers-color-scheme: dark)">
+          <img src="/assets/images/screenshot-documents-light.jpg" width="1600" height="1052" alt="DocManFu document library showing AI-named bills, medical records, and correspondence with automatic tags">
+        </picture>
       </div>
       <div class="float-card float-ai"><span>✦</span><div><small>AI ANALYSIS</small><b>Named, tagged &amp; filed</b></div></div>
       <div class="float-card float-private"><span>⌂</span><div><small>STORAGE</small><b>100% on your server</b></div></div>
@@ -45,6 +42,8 @@ schema:
 </section>
 
 <section class="proof-strip"><div class="shell proof-grid"><div><strong>OCR</strong><span>Every scan becomes searchable</span></div><div><strong>AI</strong><span>Automatic names, types &amp; tags</span></div><div><strong>LOCAL</strong><span>Storage on hardware you control</span></div><div><strong>OPEN</strong><span>MIT licensed and community built</span></div></div></section>
+
+<section class="section mascot-section"><div class="shell mascot-grid"><div class="mascot-art reveal" data-parallax><img src="/assets/images/docmanfu-logo.webp" width="1200" height="800" loading="lazy" alt="DocManFu panda in sunglasses relaxing on a beanbag with a laptop, next to a mug reading Lazy Docs Win"></div><div class="reveal delay-1"><p class="eyebrow">Document management for the lazy</p><h2>Let the panda do the filing.</h2><p>Scan it, drop it in, and walk away. DocManFu reads, names, tags, and files your paperwork so you can get back to more important things—like doing nothing.</p><a class="text-link" href="/features/">See what it handles for you <span>→</span></a></div></div></section>
 
 <section class="section intro-section"><div class="shell narrow center reveal"><p class="eyebrow">Less filing. More finding.</p><h2>Document management that works like you wish it did.</h2><p class="section-lead">Drop in a PDF or photo. DocManFu applies OCR, makes the processed document searchable, and can suggest a useful name and tags.</p></div>
 <div class="shell feature-bento">
@@ -66,4 +65,7 @@ schema:
 
 <span>✓ DocManFu is ready at http://localhost:8080</span></code></pre></div><div class="reveal delay-1"><p class="eyebrow">Open by design</p><h2>Inspect it. Improve it. Make it yours.</h2><p>DocManFu is MIT licensed and built in the open with FastAPI, Svelte, PostgreSQL, Redis, Celery, and Docker. No proprietary export format. No hostage negotiation with your own data.</p><div class="button-row"><a class="button button-primary" href="{{ site.github }}">Explore the code</a><a class="text-link" href="{{ site.github }}/issues">Join the project <span>↗</span></a></div></div></div></section>
 
+<section class="section hosted-section"><div class="shell narrow center reveal"><p class="eyebrow">Coming soon</p><h2>Don’t want to run a server?</h2><p class="section-lead">A hosted version of DocManFu is on the way for people who want the same organized, searchable archive without managing Docker, backups, or updates. Self-hosting will always stay free and open source.</p><div class="button-row" style="justify-content:center"><a class="button button-primary" href="{{ site.x }}">Questions? Ask @{{ site.xHandle }} on X <span aria-hidden="true">↗</span></a></div></div></section>
+
+{% set ctaPanda = true %}
 {% include "partials/cta.njk" %}
