@@ -1,0 +1,17 @@
+---
+layout: layouts/base.njk
+pagination:
+  data: documentTypes
+  size: 1
+  addAllPagesToCollections: true
+  alias: doc
+permalink: "/documents/{{ doc.slug }}/index.html"
+bodyClass: inner-page
+ogType: article
+---
+<section class="page-hero"><div class="shell narrow center reveal"><p class="eyebrow">{{ doc.name }} · private {{ doc.keyword }}</p><h1>{{ doc.headline }}</h1><p>{{ doc.intro }}</p><div class="button-row centered"><a class="button button-primary" href="/getting-started/">Get started free</a><a class="button button-outline" href="/features/">See all features</a></div></div></section>
+<section class="section"><div class="shell split-panel"><div class="reveal"><p class="eyebrow">The problem</p><h2>Why {{ doc.name | lower }} get out of hand</h2><ul class="check-list">{% for pain in doc.pains %}<li>{{ pain }}</li>{% endfor %}</ul></div><div class="reveal delay-1"><p class="eyebrow">A better system</p><h2>Tips for organizing {{ doc.name | lower }}</h2><ol class="number-list">{% for tip in doc.tips %}<li><span>{{ loop.index }}</span>{{ tip }}</li>{% endfor %}</ol></div></div></section>
+<section class="section"><div class="shell detail-feature-grid">{% for feature in doc.features %}<article class="detail-feature reveal"><h2>{{ feature.title }}</h2><p>{{ feature.text }}</p></article>{% endfor %}</div></section>
+<section class="section faq-section"><div class="shell narrow"><p class="eyebrow">Questions</p><h2>{{ doc.name }} in DocManFu</h2><div class="faq-list">{% for faq in doc.faqs %}<details><summary>{{ faq.q }}</summary><p>{{ faq.a }}</p></details>{% endfor %}</div>
+<h2>Organize other documents</h2><p class="related-links">{% for other in documentTypes %}{% if other.slug != doc.slug %}<a href="/documents/{{ other.slug }}/">{{ other.name }}</a>{% endif %}{% endfor %}</p></div></section>
+{% include "partials/cta.njk" %}

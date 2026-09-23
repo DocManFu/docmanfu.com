@@ -1,0 +1,14 @@
+---
+layout: layouts/base.njk
+permalink: /documents/index.html
+title: Organize Every Kind of Personal Document
+description: "Guides for organizing bills, tax documents, medical records, receipts, insurance, statements, and more in DocManFu, a private self-hosted document manager."
+bodyClass: inner-page
+schema:
+  "@context": "https://schema.org"
+  "@type": "CollectionPage"
+  name: "Organize personal documents with DocManFu"
+---
+<section class="page-hero"><div class="shell narrow center reveal"><p class="eyebrow">Use cases</p><h1>A private home for every kind of paperwork.</h1><p>See how DocManFu handles the documents that run your household, from monthly bills to lifelong records.</p></div></section>
+<section class="section"><div class="shell detail-feature-grid">{% for doc in documentTypes %}<a class="detail-feature reveal" href="/documents/{{ doc.slug }}/"><h2>{{ doc.name }}</h2><p>{{ doc.description }}</p></a>{% endfor %}</div></section>
+{% include "partials/cta.njk" %}

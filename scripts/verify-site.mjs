@@ -9,6 +9,10 @@ const required = [
   'evernote-alternative/index.html',
   'getting-started/index.html',
   'privacy/index.html',
+  'documents/index.html',
+  'documents/bills/index.html',
+  'self-host/index.html',
+  'self-host/synology-nas/index.html',
   '404.html',
   'sitemap.xml',
   'robots.txt',
@@ -80,7 +84,7 @@ const home = await readFile(join(root, 'index.html'), 'utf8');
 if (home.includes('role="img"') && home.includes('<button')) errors.push('Homepage mock must not nest controls inside role=img');
 
 const sitemap = await readFile(join(root, 'sitemap.xml'), 'utf8');
-for (const url of ['/features/', '/privacy/', '/getting-started/']) {
+for (const url of ['/features/', '/privacy/', '/getting-started/', '/documents/tax-documents/', '/self-host/vps/']) {
   if (!sitemap.includes(`https://docmanfu.com${url}`)) errors.push(`Sitemap missing ${url}`);
 }
 

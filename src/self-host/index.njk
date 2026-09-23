@@ -1,0 +1,14 @@
+---
+layout: layouts/base.njk
+permalink: /self-host/index.html
+title: Where to Self-Host DocManFu
+description: "Deploy DocManFu on Synology, Unraid, TrueNAS SCALE, Proxmox, a VPS, a home server, or Docker Desktop. Private document management anywhere Docker runs."
+bodyClass: inner-page
+schema:
+  "@context": "https://schema.org"
+  "@type": "CollectionPage"
+  name: "Self-hosting DocManFu"
+---
+<section class="page-hero page-hero-dark"><div class="shell narrow center reveal"><p class="eyebrow">Deploy anywhere Docker runs</p><h1>Pick the hardware. Keep the documents.</h1><p>DocManFu runs on NAS devices, homelab servers, virtual machines, cloud servers, and desktops.</p></div></section>
+<section class="section"><div class="shell detail-feature-grid">{% for platform in platforms %}<a class="detail-feature reveal" href="/self-host/{{ platform.slug }}/"><h2>{{ platform.title }}</h2><p>{{ platform.description }}</p></a>{% endfor %}</div></section>
+{% include "partials/cta.njk" %}

@@ -1,0 +1,23 @@
+---
+layout: layouts/base.njk
+pagination:
+  data: platforms
+  size: 1
+  addAllPagesToCollections: true
+  alias: platform
+permalink: "/self-host/{{ platform.slug }}/index.html"
+bodyClass: inner-page
+ogType: article
+---
+<section class="page-hero page-hero-dark"><div class="shell narrow center reveal"><p class="eyebrow">Deploy guide</p><h1>Private document management on {{ platform.name }}.</h1><p>{{ platform.intro }}</p><div class="button-row centered"><a class="button button-primary" href="/getting-started/">Installation steps</a><a class="button button-outline" href="{{ site.docs }}">Deployment guide</a></div></div></section>
+<section class="section"><div class="shell split-panel"><div class="reveal"><p class="eyebrow">Why it fits</p><h2>Why run DocManFu on {{ platform.name }}</h2><ul class="check-list">{% for item in platform.why %}<li>{{ item }}</li>{% endfor %}</ul></div><div class="reveal delay-1"><p class="eyebrow">Before you install</p><h2>Setup notes</h2><ol class="number-list">{% for note in platform.notes %}<li><span>{{ loop.index }}</span>{{ note }}</li>{% endfor %}</ol></div></div></section>
+<section class="section"><div class="shell narrow reveal"><p class="eyebrow">What you get</p><h2>The full DocManFu stack on {{ platform.name }}</h2><p>DocManFu runs as one Docker Compose stack: web app, API, PostgreSQL, Redis, and a background OCR worker. Anywhere Docker Engine and Docker Compose v2 run, DocManFu can run. OCR happens locally, AI is optional and can run locally with Ollama, and your documents stay on storage you control.</p><div class="code-block"><button type="button" data-copy="git clone https://github.com/DocManFu/DocManFu.git
+cd DocManFu
+cp .env.production.example .env
+./prod up -d">Copy</button><pre><code>git clone https://github.com/DocManFu/DocManFu.git
+cd DocManFu
+cp .env.production.example .env   # set POSTGRES_PASSWORD and JWT_SECRET_KEY
+./prod up -d</code></pre></div>
+<h2>Other ways to self-host</h2><p class="related-links">{% for other in platforms %}{% if other.slug != platform.slug %}<a href="/self-host/{{ other.slug }}/">{{ other.name | replace("a ", "") | replace("home server", "Home server") }}</a>{% endif %}{% endfor %}</p>
+<h2>What will you store?</h2><p class="related-links">{% for doc in documentTypes %}<a href="/documents/{{ doc.slug }}/">{{ doc.name }}</a>{% endfor %}</p></div></section>
+{% include "partials/cta.njk" %}
