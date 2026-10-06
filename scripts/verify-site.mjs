@@ -65,6 +65,7 @@ for (const file of htmlFiles) {
     const [pathname, hash] = url.split('#');
     if (!pathname && hash && !ids.has(hash)) errors.push(`${relative}: missing #${hash}`);
     if (!pathname) continue;
+    if (pathname === '/1c821757cff8.js') continue; // Slimlytics, proxied by Caddy
     let target = join(root, pathname);
     if (pathname.endsWith('/')) target = join(target, 'index.html');
     try { await stat(target); } catch { errors.push(`${relative}: broken internal URL ${url}`); }
